@@ -8,9 +8,8 @@
     <h1>春の大喜利祭り</h1>
   </header>
   <section>
-    <p>表示されているお題で自由ににボケてみよう！</p>
+    <p>表示されているお題で自由に<%= link_to 'ボケてみよう！', new_tweet_path %></p>
     <p>お題：入社初日に出会った、衝撃的な先輩プログラマーとは</p>
-    <br>
     <table>
       <tr>
         <th>みんなのボケ</th>
@@ -19,12 +18,13 @@
     <% @tweets.each do |tweet| %>
       <tr>
         <td><%= tweet.content %></td>
+        <td><%= link_to '詳細', tweet_path(tweet.id) %></td>
         <td><%= link_to '編集', edit_tweet_path(tweet.id) %></td>
+        <td><%= link_to '削除', tweet_path(tweet.id), method: :delete %></td>
       </tr>
     <% end %>
     </table>
-    <br>
-    <%= link_to 'ボケる', new_tweet_path %>
+    <%= link_to 'ボケてみる', new_tweet_path %>
   </section>
   <footer></footer>
 </body>
