@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.new(blog_params)
+    @tweet = Tweet.new(tweet_params)
     if @tweet.save
       redirect_to tweets_path
     else
@@ -16,9 +16,22 @@ class TweetsController < ApplicationController
     end
   end
 
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def update
+    @tweet = Tweet.find(params[:id])
+    if @tweet.update(tweet_params)
+      redirect_to tweets_path
+    else
+      render :edit
+    end
+  end
+
   private
 
-  def blog_params
+  def tweet_params
     params.require(:tweet).permit(:content)
   end
 end
