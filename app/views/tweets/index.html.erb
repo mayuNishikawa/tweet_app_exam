@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <header>
+    <h1>春の大喜利祭り</h1>
+  </header>
+  <section>
+    <p>表示されているお題で自由ににボケてみよう！</p>
+    <p>お題：入社初日に出会った、衝撃的な先輩プログラマーとは</p>
+    <br>
+    <table>
+      <tr>
+        <th>みんなのボケ</th>
+    </tr>
+
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.content %></td>
+      </tr>
+    <% end %>
+    </table>
+    <br>
+    <%= link_to 'ボケる', new_tweet_path %>
+  </section>
+  <footer></footer>
+</body>
+</html>
