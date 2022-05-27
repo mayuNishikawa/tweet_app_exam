@@ -1,31 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-</head>
-<body>
-  <header>
-    <h1>春の大喜利祭り</h1>
-  </header>
-  <section>
-    <p>表示されているお題で自由に<%= link_to 'ボケてみよう！', new_tweet_path %></p>
-    <p>お題：入社初日に出会った、衝撃的な先輩プログラマーとは</p>
-    <table>
-      <tr>
-        <th>みんなのボケ</th>
+<section class="topic">
+  <p>表示されているお題で自由に<%= link_to 'ボケてみよう！', new_tweet_path %></p>
+  <p>お題：入社初日に出会った、衝撃的な先輩プログラマーとは</p>
+</section>
+<section class="jokebox">
+  <table>
+    <tr>
+      <th>みんなのボケ</th>
     </tr>
 
     <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.content %></td>
-        <td><%= link_to '詳細', tweet_path(tweet.id) %></td>
-        <td><%= link_to '編集', edit_tweet_path(tweet.id) %></td>
-        <td><%= link_to '削除', tweet_path(tweet.id), method: :delete, data: { confirm: 'なかったことにしますか?'} %></td>
-      </tr>
+    <tr>
+      <td><%= tweet.content %></td>
+      <td><%= link_to '詳細', tweet_path(tweet.id) %></td>
+      <td><%= link_to '編集', edit_tweet_path(tweet.id) %></td>
+      <td><%= link_to '削除', tweet_path(tweet.id), method: :delete, data: { confirm: 'なかったことにしますか?'} %></td>
+    </tr>
     <% end %>
-    </table>
-    <%= link_to 'ボケてみる', new_tweet_path %>
-  </section>
-  <footer></footer>
-</body>
-</html>
+  </table>
+  <%= link_to 'ボケてみる', new_tweet_path %>
+</section>
