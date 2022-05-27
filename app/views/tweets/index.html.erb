@@ -1,21 +1,24 @@
-<section class="topic">
+<section>
   <p>表示されているお題で自由に<%= link_to 'ボケてみよう！', new_tweet_path %></p>
-  <p>お題：入社初日に出会った、衝撃的な先輩プログラマーとは</p>
+  <p class="topic">お題：入社初日に出会った、衝撃的な先輩プログラマーとは</p>
 </section>
 <section class="jokebox">
   <table>
     <tr>
       <th>みんなのボケ</th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
     </tr>
 
     <% @tweets.each do |tweet| %>
     <tr>
       <td><%= tweet.content %></td>
-      <td><%= link_to '詳細', tweet_path(tweet.id) %></td>
-      <td><%= link_to '編集', edit_tweet_path(tweet.id) %></td>
-      <td><%= link_to '削除', tweet_path(tweet.id), method: :delete, data: { confirm: 'なかったことにしますか?'} %></td>
+      <td><%= link_to 'click', tweet_path(tweet.id) %></td>
+      <td><%= link_to 'click', edit_tweet_path(tweet.id) %></td>
+      <td><%= link_to 'click', tweet_path(tweet.id), method: :delete, data: { confirm: 'なかったことにしますか?'} %></td>
     </tr>
     <% end %>
   </table>
-  <%= link_to 'ボケてみる', new_tweet_path %>
+  <%= link_to 'ボケてみる', new_tweet_path, class: "link_to_tweet" %>
 </section>
