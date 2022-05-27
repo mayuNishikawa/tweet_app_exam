@@ -3,11 +3,11 @@
 </section>
 
 <section class="form">
-<%= form_with(model: @tweet, local: true, url: tweets_path) do |form| %>
-  <%= form.hidden_field :content %>
+  <%= form_with(model: @tweet, local: true, url: tweets_path) do |form| %>
+    <%= form.hidden_field :content %>
 
-  <p>本文:<%= @tweet.content %></p>
+    <p>本文:<%= @tweet.content %></p>
     <%= form.submit  "ボケる" %>
     <%= form.submit '戻る', name: 'back' %>
-<% end %>
+  <% end %>
 </section>
